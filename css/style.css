@@ -684,14 +684,6 @@ footer {
 
 @media (max-width: 480px) {
 
-    button {
-        display: none;
-    }
-
-    a[href="galeria.html"] {
-        display: none;
-    }
-
     /* Голос */
     .video-bg {
         height: 50vh !important;
