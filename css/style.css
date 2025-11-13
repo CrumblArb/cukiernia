@@ -472,7 +472,7 @@ footer {
 
     .category-card .hero-img {
         top: -90px;
-        height: 180px;
+        height: 300;
         left: 18px;
         right: 18px
     }
@@ -542,7 +542,7 @@ main.wrap {
 
     .category-card .hero-img {
         top: -96px !important;
-        height: 160px !important;
+        height: 400px !important;
     }
 }
 
@@ -659,7 +659,7 @@ footer {
     }
 
     .category-card .hero-img {
-        height: 240px !important;
+        height: 300px !important;
         width: 100% !important;
         margin-bottom: 12px !important;
     }
