@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cukiernia Śnieżka — Strona</title>
+  <meta name="description" content="Cukiernia Śnieżka — torty, ciasta, słodkie stoły. Gliwice • Kleszczów" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="scrolled">
+
+  <header>
+    <div class="wrap">
+      <nav>
+        <div class="brand">
+          <div class="logo" id="logoPlaceholder"><img src="./logo.png" alt=""></div>
+          <div>
+            <div style="font-weight:700">Cukiernia Śnieżka</div>
+            <div class="small muted">Gliwice • Kleszczów</div>
+          </div>
+        </div>
+
+        <!-- desktop links -->
+        <div class="navlinks">
+          <a href="#about">O nas</a>
+          <a href="#torty">Torty</a>
+          <a href="#ciasta">Ciasta</a>
+          <a href="#slodki">Słodki stół</a>
+          <a href="galeria.html">Galeria</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+
+        <!-- hamburger for mobile -->
+        <button id="hamburger" class="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- mobile full-screen menu -->
+  <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <button id="mobileClose" class="mobile-close" aria-label="Zamknij menu">✕</button>
+    <div class="mobile-menu-inner">
+      <a href="#about" class="mobile-link">O nas</a>
+      <a href="#torty" class="mobile-link">Torty</a>
+      <a href="#ciasta" class="mobile-link">Ciasta</a>
+      <a href="#slodki" class="mobile-link">Słodki stół</a>
+      <a href="galeria.html" class="mobile-link">Galeria</a>
+      <a href="#kontakt" class="mobile-link">Kontakt</a>
+    </div>
+  </div>
+
+  <video autoplay muted loop playsinline class="video-bg" id="bgvideo">
+    <source src="./background.mp4" type="video/mp4">
+  </video>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <h1 id="heroTitle">Cukiernia Śnieżka — tradycja i smak od 1972</h1>
+        <p id="heroLead">Rodzinna cukiernia, w której każde wypieki powstają ręcznie, z naturalnych składników. Torty na
+          zamówienie — wesela, urodziny, komunie.</p>
+        <div style="display:flex;gap:12px;align-items:center">
+          <button class="btn" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">Zamów
+            teraz</button>
+          <a class="small muted" style="color: white;" href="galeria.html">Zobacz galerię</a>
+        </div>
+      </div>
+
+    </section>
+    <!-- ===== CATEGORIES / MENU CARDS ===== -->
+    <section class="categories-wrap" aria-label="Kategorie — Torty / Ciasta / Słodki stół">
+      <div class="wrap categories">
+        <div class="category-card card-left" data-cat="ciasta" data-img="ciasto.jpg">
+          <h3>Ciasta</h3>
+          <p>Codziennie świeże...</p>
+          <button class="cat-btn">ZOBACZ ZDJĘCIA</button>
+        </div>
+
+        <div class="category-card card-center" data-cat="torty" data-img="tort.jpg">
+          <h3>Torty na zamówienie</h3>
+          <p>Cena: 49,80 zł / kg</p>
+          <button class="cat-btn">ZOBACZ ZDJĘCIA</button>
+        </div>
+
+        <div class="category-card card-right" data-cat="slodkie-stoly" data-img="slodki_stol.jpg">
+          <h3>Słodki stół</h3>
+          <p>Kompozycje deserów...</p>
+          <button class="cat-btn">ZOBACZ ZDJĘCIA</button>
+        </div>
+      </div>
+    </section>
+    <!-- ===== end categories ===== -->
+
+
+    <section id="about" class="about">
+      <h2 style="color: #ab3f97;">O nas</h2>
+      <div class="card">
+        <p id="aboutText">Śnieżka — rodzinna cukiernia, która od 1972 roku serwuje kolejnym pokoleniom wyłącznie wypieki
+          własnego wyrobu. Od lat łączymy tradycyjne receptury z miłością do słodkości. Wszystkie nasze torty, ciasta i
+          desery powstają z naturalnych składników, najlepszej śmietany i produktów najwyższej jakości. Wierzymy, że
+          słodkie chwile tworzą najpiękniejsze wspomnienia. Każdy wypiek przygotowujemy ręcznie, z dbałością o każdy
+          detal. Działamy w Gliwicach i Kleszczowie.</p>
+      </div>
+    </section>
+
+    <section id="torty">
+      <h2 style="color: #ab3f97;">Torty</h2>
+      <div class="card">
+        <p id="tortyLead">W Cukierni Śnieżka od lat tworzymy torty, które zachwycają smakiem. Nasze wypieki powstają
+          według tradycyjnych receptur, z naturalnych składników i najlepszej bitej śmietany. Przygotowujemy torty
+          na urodziny, wesela, komunie, chrzciny i inne wyjątkowe okazje.</p>
+        <div style="margin-top:12px">
+          <div style="font-weight:600;margin-bottom:6px">Smaki tortów:</div>
+          <ul id="tortyList" type="none">
+            <li>śmietankowy z owocami</li>
+            <li>czekoladowy</li>
+            <li>orzechowy</li>
+            <li>kokosowy</li>
+            <li>wiśniowy</li>
+            <li>wiśniowo-rumowy</li>
+            <li>kawowy</li>
+          </ul>
+        </div>
+        <div style="margin-top:18px;padding-top:18px">
+          <div style="font-weight:600;margin-bottom:6px">Wielkości:</div>
+          <ul type="none">
+            <li>Mały — do 8 porcji</li>
+            <li>Średni — do 15 porcji</li>
+            <li>Duży — do 24 porcji</li>
+          </ul>
+          <div style="margin-top:12px">
+            <div class="price">Cena: <span id="pricePerKg">49,80 zł / kg</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ciasta">
+      <h2 style="color: #ab3f97;">Ciasta</h2>
+      <div class="card">
+        <p id="ciastaText">W naszej ofercie znajdziesz szeroki wybór ciast: od puszystych biszkoptów i delikatnych
+          serników, po aromatyczne szarlotki i czekoladowe klasyki. Każde ciasto pieczemy na miejscu, w naszej piekarni
+          w Gliwicach z prawdziwego masła, świeżych jaj i naturalnej śmietany. Codziennie świeże, pachnące i
+          przygotowane z sercem.</p>
+        <p class="muted small">Prowadzisz sklep lub restaurację i szukasz dostawcy? Zadzwoń, a przygotujemy ofertę.</p>
+      </div>
+    </section>
+
+    <section id="slodki">
+      <h2 style="color: #ab3f97;">Słodki stół</h2>
+      <div class="card">
+
+        <p id="slodkiText">Słodkie stoły na każdą okazję. W Cukierni Śnieżka tworzymy słodkie stoły, które
+          zachwycają nie tylko smakiem, ale i wyglądem. Idealne na wesela, urodziny, komunie, chrzciny i imprezy
+          firmowe. Przygotowujemy bogaty wybór ciast, deserów i drobnych słodkości, dopasowując kompozycję do
+          charakteru imprezy.</p>
+        <p class="price">Ceny od <strong id="pricePerPerson">25 zł / osoba</strong></p>
+        <p>Masz pytania? tel: <a href="tel:509595852">509 595 852</a></p>
+
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <h2 style="color: #ab3f97;">Kontakt</h2>
+      <div class="card ">
+        <div>
+          <p style="font-weight:600">Zapraszamy</p>
+          <p id="address1">ul. Bednarska 5, Gliwice</p>
+          <p>tel: <a href="tel:322382030">32 238 20 30</a></p>
+          <p>otwarte codziennie od 8:00 do 20:00</p>
+
+          <div style="height:12px"></div>
+
+          <p id="address2">ul. Kozielska 16, Kleszczów</p>
+          <p>tel: <a href="tel:509595852">509 595 852</a></p>
+          <p>otwarte codziennie od 10:00 do 18:00</p>
+
+          <div style="height:10px"></div>
+          <p>Znajdź nas na Facebooku: <a id="fbLink"
+              href="https://www.facebook.com/people/Cukiernia-%C5%9Anie%C5%BCka/100063549433435/?mibextid=wwXIfr&rdid=tTGmajWh405CF2yD&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16xvojvgie%2F%3Fmibextid%3DwwXIfr"
+              target="_blank">https://www.facebook.com/Cukiernia-Sniezka</a></p>
+          <div class="maps">
+            <div class="map" style="margin-bottom:12px">
+              <iframe src="https://www.google.com/maps?q=Kozielska+16+Kleszcz%C3%B3w&output=embed" width="100%"
+                height="100%" style="border:0" loading="lazy"></iframe>
+            </div>
+            <div class="map" style="margin-bottom:12px">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5097.759905343022!2d18.662680793733003!3d50.29416872528775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471130f8e40d9545%3A0x4b2ceea5561e23fd!2sBednarska%205%2C%2044-100%20Gliwice%2C%20Poland!5e0!3m2!1sen!2sus!4v1763028115382!5m2!1sen!2sus"
+                width="100%" height="100%" style="border:0" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="small muted">© Cukiernia Śnieżka — wszystkie prawa zastrzeżone • Projekt i wykonanie</div>
+    </div>
+  </footer>
+
+  <script>
+    // Video playback speed (optional)
+    const video = document.getElementById('bgvideo');
+    if (video) video.playbackRate = 1;
+
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+
+    function openMobileMenu() {
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      hamburger.setAttribute('aria-expanded', 'true');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+    }
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+      hamburger.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+    }
+
+    hamburger.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('open')) closeMobileMenu();
+      else openMobileMenu();
+    });
+    mobileClose.addEventListener('click', closeMobileMenu);
+
+    // close when link clicked
+    document.querySelectorAll('.mobile-link').forEach(a => {
+      a.addEventListener('click', () => setTimeout(closeMobileMenu, 100));
+    });
+
+    // close with Escape
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
+    });
+
+    // close when click outside inner (on overlay)
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) closeMobileMenu();
+    });
+
+    window.addEventListener('resize', () => {
+      const zoom = window.visualViewport.scale || 1;
+      document.documentElement.style.setProperty('--zoom', zoom);
+    });
+
+    document.querySelectorAll('.category-card').forEach(card => {
+      const src = card.getAttribute('data-img') || '';
+      const hero = document.createElement('div');
+      hero.className = 'hero-img';
+      if (src) hero.style.backgroundImage = `url("${src}")`;
+      card.appendChild(hero);
+
+      const btn = card.querySelector('.cat-btn');
+      const cat = card.getAttribute('data-cat');
+
+      function go() {
+        if (cat) {
+          window.location.href = `galeria.html?cat=${encodeURIComponent(cat)}`;
+        }
+      }
+
+      btn && btn.addEventListener('click', (e) => { e.stopPropagation(); go(); });
+      card.addEventListener('click', (e) => { if (!e.target.closest('.cat-btn')) go(); });
+    });
+
+  </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cukiernia Śnieżka — Galeria</title>
+  <meta name="description" content="Cukiernia Śnieżka — galeria zdjęć tortów i słodkich stołów" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #d9480f;
+      --muted: #6b7280;
+      --bg: #fffaf6;
+      --card: #ffffff;
+      --radius: 12px;
+      --maxw: 1100px;
+      font-family: "Rubik", system-ui, Arial, sans-serif;
+      color: #111827;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #fffaf6 0%, #fff 60%);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 28px;
+    }
+
+    header {
+      padding: 12px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #fff, #fff4f0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(217, 72, 15, 0.08);
+      overflow: hidden;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    /* navigation */
+    nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    nav button {
+      border: 1px solid transparent;
+      background: #fff;
+      color: #111;
+      font-weight: 500;
+      border-radius: 8px;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+    }
+
+    nav button:hover {
+      background: #fff5f0;
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    nav button.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 6px 18px rgba(217, 72, 15, 0.2);
+    }
+
+    /* gallery grid */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .thumb {
+      overflow: hidden;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .thumb img {
+      display: block;
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      transition: transform .35s;
+    }
+
+    .thumb:hover img {
+      transform: scale(1.06);
+    }
+
+    /* lightbox */
+    .lb-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .28s;
+    }
+
+    .lb-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lb-content {
+      max-width: 92vw;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .lb-img {
+      max-width: 100%;
+      max-height: 78vh;
+      border-radius: 12px;
+      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.5);
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .lb-img img {
+      display: block;
+      max-width: 100%;
+      max-height: 78vh;
+      width: auto;
+      height: auto;
+    }
+
+    .lb-close {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      border: 0;
+      color: #fff;
+      padding: 8px 10px;
+      cursor: pointer;
+    }
+
+    .lb-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      color: #fff;
+      border: 0;
+      font-size: 32px;
+      padding: 20px 24px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10000;
+      transition: background 0.25s;
+    }
+
+    .lb-arrow.left {
+      left: 20px;
+    }
+
+    .lb-arrow.right {
+      right: 20px;
+    }
+
+    @media(max-width:640px) {
+      .thumb img {
+        height: 120px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      .lb-arrow {
+        font-size: 26px;
+        padding: 14px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="wrap" role="banner">
+    <div class="header-row">
+      <a href="./index.html" class="logo"><img src="logo.png" alt="Logo Cukierni Śnieżka"></a>
+      <div>
+        <h1>Cukiernia Śnieżka — Galeria</h1>
+        <div class="muted">Zdjęcia tortów i słodkich stołów</div>
+      </div>
+    </div>
+
+    <nav>
+      <button onclick="showCategory('ciasta')" class="active">Ciasta</button>
+      <button onclick="showCategory('slodkie-stoly')">Słodkie stoły</button>
+      <button onclick="showCategory('torty')">Torty</button>
+    </nav>
+  </header>
+
+  <main class="wrap" role="main">
+    <section>
+
+      <div id="gallery" class="gallery" aria-live="polite">
+        <!-- thumbnails injected by JS -->
+      </div>
+    </section>
+  </main>
+
+  <div id="lightbox" class="lb-overlay" role="dialog" aria-hidden="true">
+    <button id="lbClose" class="lb-close" aria-label="Zamknij">✕</button>
+    <button id="prevArrow" class="lb-arrow left" aria-label="Poprzednie">◀</button>
+    <button id="nextArrow" class="lb-arrow right" aria-label="Następne">▶</button>
+
+    <div class="lb-content">
+      <div class="lb-img" id="lbImgWrap"><img id="lbImg" src="" alt=""></div>
+      <div class="lb-meta"></div>
+    </div>
+  </div>
+
+  <script>
+    let galleryData = {};
+    let currentCategory = 'ciasta';
+    let galleryImages = [];
+
+    fetch('load_images.php')
+      .then(res => res.json())
+      .then(data => {
+        galleryData = data;
+
+        // Читаємо параметр ?cat= з URL
+        const params = new URLSearchParams(window.location.search);
+        const cat = params.get('cat');
+
+        // Якщо в URL є категорія і вона існує у даних — показуємо її
+        if (cat && galleryData[cat]) {
+          showCategory(cat);
+        } else {
+          showCategory('ciasta'); // fallback
+        }
+      })
+      .catch(err => console.error('Błąd podczas ładowania galerii:', err));
+
+    const galleryEl = document.getElementById('gallery');
+    const navButtons = document.querySelectorAll('nav button');
+
+    function showCategory(cat) {
+      navButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.toLowerCase().includes(cat.replace('-', ' ')));
+      });
+      currentCategory = cat;
+      galleryImages = galleryData[cat] || [];
+      renderGallery();
+
+      // оновлюємо стан активної кнопки
+
+    }
+
+    function renderGallery() {
+      galleryEl.innerHTML = '';
+      if (!galleryImages || galleryImages.length === 0) {
+        galleryEl.innerHTML = `<div class="muted">Brak zdjęć w kategorii <b>${currentCategory}</b>.</div>`;
+        return;
+      }
+
+      galleryImages.forEach((img, idx) => {
+        const div = document.createElement('div');
+        div.className = 'thumb';
+        div.tabIndex = 0;
+        div.setAttribute('data-index', idx);
+        div.innerHTML = `<img src="${img.src}" loading="lazy">`;
+        div.addEventListener('click', () => openLightbox(idx));
+        div.addEventListener('keydown', e => { if (e.key === 'Enter') openLightbox(idx); });
+        galleryEl.appendChild(div);
+      });
+    }
+
+    let currentIndex = -1;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lbImg');
+      lbImg.src = galleryImages[index].src;
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+    }
+
+    // закриття
+    function closeLightbox() {
+      const lb = document.getElementById('lightbox');
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
+      currentIndex = -1;
+    }
+
+    // наступне / попереднє
+    function showNext() {
+      if (currentIndex === -1) return;
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      openLightbox(currentIndex);
+    }
+
+    function showPrev() {
+      if (currentIndex === -1) return;
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      openLightbox(currentIndex);
+    }
+
+    // підключаємо кнопки
+    document.getElementById('nextArrow').addEventListener('click', showNext);
+    document.getElementById('prevArrow').addEventListener('click', showPrev);
+    document.getElementById('lbClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightbox').addEventListener('click', e => {
+      if (e.target.id === 'lightbox') closeLightbox();
+    });
+
+    // навігація клавішами
+    window.addEventListener('keydown', (e) => {
+      if (document.getElementById('lightbox').classList.contains('open')) {
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+        if (e.key === 'Escape') closeLightbox();
+      }
+    });
+  </script>
+
+</body>
+
+</html>
