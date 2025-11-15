@@ -11,8 +11,8 @@
     :root {
       --accent: #d9480f;
       --muted: #6b7280;
-      --bg: #fffaf6;
-      --card: #ffffff;
+      --bg: #f7eee3;      /* ten sam beż co na stronie głównej */
+      --card: #fff7ec;    /* kremowy kolor kart */
       --radius: 12px;
       --maxw: 1100px;
       font-family: "Rubik", system-ui, Arial, sans-serif;
@@ -25,7 +25,12 @@
 
     body {
       margin: 0;
-      background: linear-gradient(180deg, #fffaf6 0%, #fff 60%);
+      background: linear-gradient(
+        180deg,
+        #f7eee3 0%,
+        #fff7ec 55%,
+        #ffffff 100%
+      ); /* taki sam ciepły gradient jak na index.html */
       -webkit-font-smoothing: antialiased;
     }
 
@@ -41,6 +46,10 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 12px;
+      background: #fffaf4; /* lekko jaśniejszy pasek pod nagłówkiem */
+      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
     }
 
     .logo {
@@ -122,7 +131,7 @@
     .thumb {
       overflow: hidden;
       border-radius: 10px;
-      background: #fff;
+      background: var(--card); /* ten sam kremowy kolor kart jak na stronie głównej */
       box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
       cursor: pointer;
       position: relative;
@@ -256,7 +265,6 @@
 
   <main class="wrap" role="main">
     <section>
-
       <div id="gallery" class="gallery" aria-live="polite">
         <!-- thumbnails injected by JS -->
       </div>
@@ -302,14 +310,14 @@
 
     function showCategory(cat) {
       navButtons.forEach(btn => {
-        btn.classList.toggle('active', btn.textContent.toLowerCase().includes(cat.replace('-', ' ')));
+        btn.classList.toggle(
+          'active',
+          btn.textContent.toLowerCase().includes(cat.replace('-', ' '))
+        );
       });
       currentCategory = cat;
       galleryImages = galleryData[cat] || [];
       renderGallery();
-
-      // оновлюємо стан активної кнопки
-
     }
 
     function renderGallery() {
@@ -342,7 +350,6 @@
       lb.setAttribute('aria-hidden', 'false');
     }
 
-    // закриття
     function closeLightbox() {
       const lb = document.getElementById('lightbox');
       lb.classList.remove('open');
@@ -350,7 +357,6 @@
       currentIndex = -1;
     }
 
-    // наступне / попереднє
     function showNext() {
       if (currentIndex === -1) return;
       currentIndex = (currentIndex + 1) % galleryImages.length;
@@ -363,7 +369,6 @@
       openLightbox(currentIndex);
     }
 
-    // підключаємо кнопки
     document.getElementById('nextArrow').addEventListener('click', showNext);
     document.getElementById('prevArrow').addEventListener('click', showPrev);
     document.getElementById('lbClose').addEventListener('click', closeLightbox);
@@ -371,7 +376,6 @@
       if (e.target.id === 'lightbox') closeLightbox();
     });
 
-    // навігація клавішами
     window.addEventListener('keydown', (e) => {
       if (document.getElementById('lightbox').classList.contains('open')) {
         if (e.key === 'ArrowRight') showNext();

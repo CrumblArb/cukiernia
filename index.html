@@ -6,8 +6,16 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Cukiernia Śnieżka — Strona</title>
   <meta name="description" content="Cukiernia Śnieżka — torty, ciasta, słodkie stoły. Gliwice • Kleszczów" />
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- TYLKO Titillium Web -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Twój główny CSS -->
   <link rel="stylesheet" href="css/style.css">
+
+
 </head>
 
 <body class="scrolled">
@@ -56,24 +64,26 @@
     </div>
   </div>
 
-  <video autoplay muted loop playsinline class="video-bg" id="bgvideo">
-    <source src="./background.mp4" type="video/mp4">
-  </video>
-
   <main class="wrap">
     <section class="hero">
-      <div>
+      <!-- Відео тепер усередині hero -->
+      <video autoplay muted loop playsinline class="hero-video" id="bgvideo">
+        <source src="./background.mp4" type="video/mp4">
+      </video>
+
+      <div class="hero-content">
         <h1 id="heroTitle">Cukiernia Śnieżka — tradycja i smak od 1972</h1>
         <p id="heroLead">Rodzinna cukiernia, w której każde wypieki powstają ręcznie, z naturalnych składników. Torty na
           zamówienie — wesela, urodziny, komunie.</p>
-        <div style="display:flex;gap:12px;align-items:center">
+        <div class="hero-cta">
           <button class="btn" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">Zamów
             teraz</button>
-          <a class="small muted" style="color: white;" href="galeria.html">Zobacz galerię</a>
+          <a class="small hero-link" href="galeria.html">Zobacz galerię</a>
         </div>
       </div>
-
     </section>
+
+
     <!-- ===== CATEGORIES / MENU CARDS ===== -->
     <section class="categories-wrap" aria-label="Kategorie — Torty / Ciasta / Słodki stół">
       <div class="wrap categories">
