@@ -307,6 +307,7 @@ header+main.wrap .hero {
     border-radius: var(--radius);
     padding: 18px;
     box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+    white-space: normal;
 }
 
 .category-card {

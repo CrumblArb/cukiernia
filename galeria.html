@@ -11,8 +11,10 @@
     :root {
       --accent: #d9480f;
       --muted: #6b7280;
-      --bg: #f7eee3;      /* ten sam beż co na stronie głównej */
-      --card: #fff7ec;    /* kremowy kolor kart */
+      --bg: #f7eee3;
+      /* ten sam beż co na stronie głównej */
+      --card: #fff7ec;
+      /* kremowy kolor kart */
       --radius: 12px;
       --maxw: 1100px;
       font-family: "Rubik", system-ui, Arial, sans-serif;
@@ -25,12 +27,11 @@
 
     body {
       margin: 0;
-      background: linear-gradient(
-        180deg,
-        #f7eee3 0%,
-        #fff7ec 55%,
-        #ffffff 100%
-      ); /* taki sam ciepły gradient jak na index.html */
+      background: linear-gradient(180deg,
+          #f7eee3 0%,
+          #fff7ec 55%,
+          #ffffff 100%);
+      /* taki sam ciepły gradient jak na index.html */
       -webkit-font-smoothing: antialiased;
     }
 
@@ -46,7 +47,8 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 12px;
-      background: #fffaf4; /* lekko jaśniejszy pasek pod nagłówkiem */
+      background: #fffaf4;
+      /* lekko jaśniejszy pasek pod nagłówkiem */
       box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08);
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
@@ -131,7 +133,8 @@
     .thumb {
       overflow: hidden;
       border-radius: 10px;
-      background: var(--card); /* ten sam kremowy kolor kart jak na stronie głównej */
+      background: var(--card);
+      /* ten sam kremowy kolor kart jak na stronie głównej */
       box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
       cursor: pointer;
       position: relative;
